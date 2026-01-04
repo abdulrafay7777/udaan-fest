@@ -123,12 +123,11 @@ img { max-width: 100%; display: block; }
 
 .logo-container { display: flex; align-items: center; gap: 15px; }
 
-/* NEW LOGO IMAGE STYLE */
 .logo-img {
-    height: 60px;
+    height: 80px; /* Sets a fixed, reasonable height */
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    display: block;
 }
 
 .logo-sponsor { font-size: 0.6rem; color: var(--c-gray); border-left: 1px solid rgba(255,255,255,0.2); padding-left: 10px; }
