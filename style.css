@@ -109,7 +109,8 @@ img { max-width: 100%; display: block; }
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1rem 0;
+    /* Optimized padding for large logo */
+    padding: 0.5rem 0; 
     transition: all 0.3s ease;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -117,23 +118,22 @@ img { max-width: 100%; display: block; }
 .navbar.scrolled {
     background-color: var(--c-dark-glass);
     backdrop-filter: blur(10px);
-    padding: 0.8rem 0;
+    padding: 0.4rem 0;
     box-shadow: 0 4px 30px rgba(0,0,0,0.1);
 }
 
 .logo-container { display: flex; align-items: center; gap: 15px; }
 
-/* Main Brand Logo - Navbar */
+/* Main Brand Logo */
 .logo-img {
-    height: 80px; 
+    height: 65px; /* Standard Desktop Size */
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
     display: block;
-    transition: height 0.3s ease;
 }
 
-/* Navbar Sponsor Styles (FIXED) */
+/* Navbar Sponsor Styles */
 .logo-sponsor {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
     padding-left: 15px;
@@ -153,10 +153,11 @@ img { max-width: 100%; display: block; }
 }
 
 .sponsor-logo {
-    height: 50px;       
-    width: auto;        
-    max-width: 150px;
-    object-fit: contain;
+    height: 35px;
+    width: auto;
+    max-width: 120px;
+    /* FIX: Prevents stretching */
+    object-fit: contain; 
     display: block;
     border-radius: 4px;
 }
@@ -165,15 +166,34 @@ img { max-width: 100%; display: block; }
 .nav-links a:not(.btn) { font-size: 0.9rem; font-weight: 500; }
 .nav-links a:not(.btn):hover { color: var(--c-yellow); }
 
-.mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--c-white); border: none; background: none;}
-
-/* Mobile Menu */
-.mobile-menu {
-    display: none;
-    background-color: var(--c-dark);
-    border-top: 1px solid #333;
-    padding: 1rem;
+/* Mobile Menu Toggle Button */
+.mobile-toggle { 
+    display: none; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+    color: var(--c-white); 
+    border: none; 
+    background: none;
+    touch-action: manipulation;
 }
+
+/* Mobile Menu (Optimized Animation) */
+.mobile-menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    background-color: var(--c-dark);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease;
+    will-change: max-height, opacity;
+}
+
+.mobile-menu.active {
+    max-height: 400px;
+    opacity: 1;
+    padding: 1rem 0;
+}
+
 .mobile-link { display: block; padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
 /* --- 4. Hero Section --- */
@@ -408,7 +428,7 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
 
 .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; color: #666; font-size: 0.9rem; }
 
-/* Footer Sponsor Styles (FIXED) */
+/* Footer Sponsor Styles */
 .footer-sponsor-box {
     display: flex;
     align-items: center;
@@ -423,10 +443,9 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
 }
 
 .sponsor-logo-footer {
-    height: 60px;
+    height: 40px;
     width: auto;
-    object-fit: contain; 
-    vertical-align: middle;
+    object-fit: contain; /* FIX: Prevents stretching */
     vertical-align: middle;
 }
 
@@ -440,12 +459,35 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
 }
 
 @media (max-width: 768px) {
-    .nav-links { display: none; } /* Hide desktop menu */
-    .mobile-toggle { display: block; }
+    .navbar {
+        padding: 0.2rem 0;
+    }
+
+    .nav-links { display: none; } 
+    
+    .mobile-toggle { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px; 
+        height: 44px;
+        font-size: 1.8rem; 
+        color: var(--c-white); 
+        border: none; 
+        background: none;
+        cursor: pointer;
+        margin-left: auto; 
+    }
     
     .logo-sponsor { display: none; } 
-    .logo-img { height: 45px; } /* Smaller logo on mobile */
     
+    .logo-img { 
+        height: 90px; 
+        max-width: 200px;
+        object-fit: contain;
+    } 
+    
+    /* Layout Adjustments */
     .hero h1 { font-size: 2.5rem; }
     .hero h2 { font-size: 1.5rem; }
     .hero-buttons { flex-direction: column; }
@@ -549,4 +591,3 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
     color: var(--c-gray) !important;
     margin-bottom: 2rem !important;
 }
-
