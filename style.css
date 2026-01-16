@@ -458,9 +458,11 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
     .vision-image-wrapper { order: 1; }
 }
 
+/* --- 11. Media Queries (Responsiveness) --- */
 @media (max-width: 768px) {
+    /* Navbar Adjustments */
     .navbar {
-        padding: 0.2rem 0;
+        padding: 0.5rem 0; 
     }
 
     .nav-links { display: none; } 
@@ -471,19 +473,41 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
         justify-content: center;
         width: 44px; 
         height: 44px;
-        font-size: 1.8rem; 
         color: var(--c-white); 
         border: none; 
         background: none;
         cursor: pointer;
-        margin-left: auto; 
+        margin-left: auto; /* Push to the right */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .logo-sponsor { display: none; } 
+    /* NEW: Mobile Toggle Icon Size */
+    .mobile-toggle svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* FIX: Show Sponsor Logo on Mobile */
+    .logo-sponsor { 
+        display: flex; /* Bring it back! */
+        padding-left: 10px; /* Reduce spacing */
+        margin-left: 10px; 
+    } 
     
+    /* Resize Sponsor Logo for Mobile to fit */
+    .sponsor-logo {
+        height: 28px; /* Smaller than desktop (35px) */
+    }
+    
+    .sponsor-label {
+        font-size: 0.45rem; /* Smaller text */
+    }
+    
+    /* Adjust Main Logo to fit next to Sponsor */
     .logo-img { 
-        height: 90px; 
-        max-width: 200px;
+        height: 55px; /* Reduced from 75px so both fit */
+        max-width: 160px;
         object-fit: contain;
     } 
     
