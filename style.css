@@ -125,11 +125,12 @@ img { max-width: 100%; display: block; }
 
 /* Main Brand Logo - Navbar */
 .logo-img {
-    height: 60px; /* Optimized height for navbar */
+    height: 80px; 
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
     display: block;
+    transition: height 0.3s ease;
 }
 
 /* Navbar Sponsor Styles (FIXED) */
@@ -152,10 +153,10 @@ img { max-width: 100%; display: block; }
 }
 
 .sponsor-logo {
-    height: 35px;       /* Increased height for visibility */
-    width: auto;        /* Auto width prevents distortion */
-    max-width: 120px;
-    object-fit: contain; /* FIX: Prevents stretching */
+    height: 50px;       
+    width: auto;        
+    max-width: 150px;
+    object-fit: contain;
     display: block;
     border-radius: 4px;
 }
@@ -422,9 +423,10 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
 }
 
 .sponsor-logo-footer {
-    height: 40px;       /* Standard footer logo height */
+    height: 60px;
     width: auto;
-    object-fit: contain; /* FIX: Prevents stretching */
+    object-fit: contain; 
+    vertical-align: middle;
     vertical-align: middle;
 }
 
@@ -547,3 +549,4 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
     color: var(--c-gray) !important;
     margin-bottom: 2rem !important;
 }
+
