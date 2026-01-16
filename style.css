@@ -123,15 +123,42 @@ img { max-width: 100%; display: block; }
 
 .logo-container { display: flex; align-items: center; gap: 15px; }
 
+/* Main Brand Logo - Navbar */
 .logo-img {
-    height: 80px; /* Sets a fixed, reasonable height */
+    height: 60px; /* Optimized height for navbar */
     width: auto;
     object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
     display: block;
 }
 
-.logo-sponsor { font-size: 0.6rem; color: var(--c-gray); border-left: 1px solid rgba(255,255,255,0.2); padding-left: 10px; }
-.logo-sponsor span { color: var(--c-white); font-weight: bold; }
+/* Navbar Sponsor Styles (FIXED) */
+.logo-sponsor {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding-left: 15px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sponsor-label {
+    font-size: 0.55rem;
+    color: var(--c-gray);
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.sponsor-logo {
+    height: 35px;       /* Increased height for visibility */
+    width: auto;        /* Auto width prevents distortion */
+    max-width: 120px;
+    object-fit: contain; /* FIX: Prevents stretching */
+    display: block;
+    border-radius: 4px;
+}
 
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 .nav-links a:not(.btn) { font-size: 0.9rem; font-weight: 500; }
@@ -155,7 +182,6 @@ img { max-width: 100%; display: block; }
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Updated path to local image */
     background-image: url('images/hero-bg.webp');
     background-size: cover;
     background-position: center;
@@ -347,7 +373,6 @@ img { max-width: 100%; display: block; }
 
 .tier-title { border: 2px solid var(--c-purple); background: var(--c-white); }
 .tier-title:hover { background: var(--c-purple); color: white; transform: scale(1.02); }
-/* Specific fix to ensure text color changes on hover for the white card */
 .tier-title:hover .tier-head, .tier-title:hover .tier-sub { color: white; }
 
 .tier-diamond { background: #f9fafb; border-color: #ddd; position: relative; overflow: hidden; }
@@ -382,6 +407,27 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
 
 .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; color: #666; font-size: 0.9rem; }
 
+/* Footer Sponsor Styles (FIXED) */
+.footer-sponsor-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-powered-by {
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sponsor-logo-footer {
+    height: 40px;       /* Standard footer logo height */
+    width: auto;
+    object-fit: contain; /* FIX: Prevents stretching */
+    vertical-align: middle;
+}
+
 /* --- 11. Media Queries (Responsiveness) --- */
 @media (max-width: 1024px) {
     .hero h1 { font-size: 3.5rem; }
@@ -394,7 +440,8 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
 @media (max-width: 768px) {
     .nav-links { display: none; } /* Hide desktop menu */
     .mobile-toggle { display: block; }
-    .logo-sponsor { display: none; }
+    
+    .logo-sponsor { display: none; } 
     .logo-img { height: 45px; } /* Smaller logo on mobile */
     
     .hero h1 { font-size: 2.5rem; }
