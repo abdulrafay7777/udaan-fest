@@ -502,7 +502,7 @@ footer { border-top: 1px solid rgba(255,255,255,0.1); padding: 4rem 0 2rem 0; }
     
     /* Adjust Main Logo to fit next to Sponsor */
     .logo-img { 
-        height: 75px;
+        height: 90px;
         max-width: 160px;
         object-fit: contain;
     } 
